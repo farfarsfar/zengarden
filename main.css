@@ -1,5 +1,16 @@
 /*///////////////////////////////////
 
+            FONT IMPORT
+
+///////////////////////////////////*/
+
+
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700,500,300,100,300italic,100italic,400italic,500italic|Sorts+Mill+Goudy);
+
+
+
+/*///////////////////////////////////
+
             BASE STYLES
 
 ///////////////////////////////////*/
@@ -10,14 +21,19 @@
 }
 
 body {
-	font-family: sans-serif;
-	line-height: 1.6;
+	font-family: 'Alegreya Sans', sans-serif;
 	color: #3a3a3a;
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Sorts Mill Goudy', serif;
 }
 
 p {
-	font-size: .95em;
-	margin-bottom: 1.5em;
+	
 }
 
 h2,
@@ -42,8 +58,52 @@ a {
 ///////////////////////////////////*/
 
 
+/* readying the document wrapper and flexing */
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    
+}
 
+.intro {
+    margin: 3%;
+    padding: ;
+    flex-grow: 100;
+}
+
+.main {
+    margin: ;
+    padding: ;
+    flex-grow: 7;
+}
+
+/* Making the main header look nice */
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10%;
+    
+    
+}
+
+header h1 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 3.4em;
+    font-weight:600;
+    margin-bottom: 2%;
+}
+
+header h2 {
+    font-size: 1em;
+}
+
+header h2::before::after {
+    content:"—";
+    color:red;
+}
+    
 
 /*///////////////////////////////////
 
