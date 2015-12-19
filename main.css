@@ -30,10 +30,13 @@ h1,
 h2,
 h3 {
     font-family: 'Sorts Mill Goudy', serif;
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 0;
 }
 
 p {
-	
+	margin-top: 0;
 }
 
 h2,
@@ -42,10 +45,7 @@ a {
 	color: #093a58;
 }
 
-h2,
-h3 {
-	margin-top: 0;
-}
+
 
 a {
 	text-decoration: none;
@@ -61,19 +61,39 @@ a {
 /* readying the document wrapper and flexing */
 
 .page-wrapper {
-    display: flex;
-    flex-direction: column;
+   
+}
+
+.page-wrapper > div ,
+.page-wrapper > section,
+.page-wrapper > div div{
+    padding-bottom: 2%;
     
+}
+.page-wrapper > div p,
+.page-wrapper > section p{
+    margin: 0 auto ;
+    padding: 0 3%;
+    max-width: 960px;
 }
 
 .intro {
-    margin: 3%;
-    padding: ;
-    flex-grow: 100;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url(ryoanji-temple1.jpg) bottom center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-bottom: ;
+    
+    color: RGBA(185, 186, 182, 1)
+}
+
+.summary {
+    text-align: center;
+    font-size: 85%;
+    padding-bottom: 3%; 
 }
 
 .main {
-    margin: ;
+    
     padding: ;
     flex-grow: 7;
 }
@@ -83,9 +103,9 @@ a {
 header {
     width: 100%;
     text-align: center;
-    margin-bottom: 10%;
-    
-    
+    margin-bottom: 8%; 
+    padding-top: 5%;
+    color: RGBA(220, 230, 220, 1)
 }
 
 header h1 {
@@ -99,11 +119,16 @@ header h2 {
     font-size: 1em;
 }
 
-header h2::before::after {
-    content:"—";
+header h2::before {
+    content:"— ";
     color:red;
 }
-    
+
+header h2::after {
+    content:" —";
+    color:red;
+}
+
 
 /*///////////////////////////////////
 
