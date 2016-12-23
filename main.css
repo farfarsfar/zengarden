@@ -18,6 +18,7 @@
 
 * {
 	box-sizing: border-box;
+  line-height: 160%;
 }
 
 body {
@@ -25,7 +26,26 @@ body {
 	color: #3a3a3a;
     margin: 0;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
 
+li {
+  list-style-type: none;
+}
+a {
+  position: relative;
+}
+a:hover:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 0;
+  width: 100%;
+  border-bottom: 3px solid darkred;
+}
 h1,
 h2,
 h3 {
@@ -33,13 +53,17 @@ h3 {
     text-align: center;
     margin-bottom: 2%;
     margin-top: 0;
-    padding: 2em 0 1em 0;
+    padding: 1em 0 0.5em 0;
+    font-size: 2em;
+    cursor: default;
 }
 
 p {
 	margin: 1em auto ;
     padding: 0 3%;
     max-width: 960px;
+    font-size: 1.5em;
+    cursor: default;
 }
 
 
@@ -51,6 +75,7 @@ a {
 
 a {
 	text-decoration: none;
+  cursor: pointer;
 }
 
 /*///////////////////////////////////
@@ -68,11 +93,9 @@ a {
 
 .page-wrapper > div ,
 .page-wrapper > section,
-.page-wrapper > div div{
+.page-wrapper > aside,
+.page-wrapper > div div {
     padding-bottom: 20px;
-    
-    
-    
 }
 
 
@@ -88,14 +111,8 @@ a {
 
 .summary {
     text-align: center;
-    font-size: 85%;
+    font-size: 65%;
     padding-bottom: 3%; 
-}
-
-.main {
-    
-    padding: ;
-    
 }
 
 /* Making the main header look nice */
@@ -103,24 +120,26 @@ a {
 header {
     width: 100%;
     text-align: center;
-    margin-bottom: 8%; 
+    margin-bottom: 2%; 
     padding-top: 5%;
+    
     
 }
 
 header h1 {
     font-family: "Alegreya Sans", sans-serif;
-    font-size: 3.4em;
+    font-size: 4em;
     font-weight:600;
     color: RGBA(220, 230, 220, 1);
     margin: 0;
     padding-bottom: 0;
+    
 }
 
 header h2 {
-    font-size: 1em;
+    font-size: 1.5em;
     color: lemonchiffon;
-    padding-bottom: 10em;
+    padding-bottom: 1%;
 }
 
 header h2::before {
@@ -134,11 +153,29 @@ header h2::after {
 }
 
 
+.main div[role=article] {
+  box-shadow:  0 2px 10px 5px rgba(0,0,0,0.4) ;
+  padding: 2em 0;
+}
+
+.main div[role=article]:nth-child(even) {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(photo.jpg) top center no-repeat;
+  color: #CDDADC;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.main div[role=article]:nth-child(odd) {
+  background:#BED0BF;
+  position: relative;
+  z-index: -1;
+}
+
 .preamble {
     margin: 60px auto;
     width: 80%;
     text-align: center;
-    color:azure;
+    color:lightgrey;
       
 }
 
@@ -148,33 +185,54 @@ header h2::after {
     font-weight: 300;
 }
 
-.explanation {
-    background:#BED0BF;
-    position: relative;
-    z-index: -1;
-    
+footer {
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: darkgrey;
+  text-align: center;
 }
 
-.participation {
-    height: 70vh;
-    box-shadow:  0 2px 10px 5px rgba(0,0,0,0.4) ;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(photo.jpg) top center no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #CDDADC;
-    padding-top: 10%;
-    
-    
+footer a {
+  cursor: pointer;
+  flex-grow: 1;
+  padding: 2em 1em;
+  background: darkslategrey;
+  color: white;
+  transition: all 0.3s ease;
+}
+footer a:nth-child(even) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+footer a:hover {
+  color:black;
+  background: lightgoldenrodyellow;
 }
 
+.sidebar {
+  
+}
 
+.sidebar .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-.benefits {
-     
-    
-    
-    
-    
+.wrapper div {
+  padding: 0 3em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 300px;
+  max-width: 600px
+}
+
+.wrapper div h3 {
+  text-align: left;
 }
 /*///////////////////////////////////
 
@@ -182,9 +240,58 @@ header h2::after {
 
 ///////////////////////////////////*/
 
-@media (min-width 768px) {
-    
-    
+@media (min-width: 768px) {
+    h1,
+    h2,
+    h3 {
+      padding: 1.4em 0 1em 0; 
+    }
+    .main div[role=article] {
+      padding: 3em 0;
+    }
+    header h1 {
+        font-size: 8em;
+    }
+    .preamble {
+        width: 40%;
+    }
+    .sidebar
+    .wrapper {
+      min-height: 350px;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 10% 3em 10%;
+    }
+    .wrapper div {
+      width: auto;
+      max-height: 120px;
+       overflow: hidden;
+      transition: max-height 0.8s;
+    }
+    .wrapper div h3 {
+      position: relative;
+    }
+    .wrapper div h3::after{
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      border-bottom: 2px solid black;
+      border-right: 2px solid black;
+      bottom: 15px;
+      left: 25%;
+      color: green;
+
+      transition: all 0.8s;
+    }
+    .wrapper div:hover {
+      max-height: 600px;
+    }
+    .wrapper div:hover h3::after {
+      opacity: 0;
+      visibility: hidden;
+    }
 }
 
 
